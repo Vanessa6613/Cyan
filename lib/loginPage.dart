@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'MenuPricipal.dart';
 
 class LoginPage extends StatelessWidget {
   Widget renderEmpresamput(){
@@ -30,9 +32,15 @@ class LoginPage extends StatelessWidget {
   }
 
   Widget renderLoginbutton(BuildContext context){
-    return Container(padding: const EdgeInsets.only(top:32),child: RaisedButton(
+    return Container(padding: const EdgeInsets.only(top:32),
+    child: RaisedButton(
+      textColor: Colors.white,
       child: Text('Entrar'),
-      onPressed: () {},
+      onPressed: () {
+       Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MenuPrincipal())); 
+                
+      },
     ));
   }
 
@@ -66,8 +74,18 @@ class LoginPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 32),
       child: RaisedButton(
-        child: Text('Entrar'),
-        onPressed: () {
+        textColor: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(FontAwesomeIcons.googlePlusSquare),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Text('Entrar con Gmail'),
+            )
+          ],),
+
+          onPressed: () {
           
         },  
         ));
@@ -79,23 +97,24 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-          body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-        decoration: BoxDecoration(color: Colors.white),
-        child: ListView(children: [
-            Image.asset('assets/images/download.jpg',
-            width: 630.0,
-            ),
-            renderEmpresamput(),
-            renderEmailImput(),
-            renderPasswordImput(),
-            renderLoginbutton(context),
-            renderCreateAccountLink(),
-            renderDivisor(),
-            renderGmailButton(),
-        ]),
-      ),
-    );
+    var scaffold = Scaffold(
+              body: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(color: Colors.white),
+            child: ListView(children: [
+                Image.asset('assets/images/download.jpg',
+                width: 630.0,
+                ),
+                renderEmpresamput(),
+                renderEmailImput(),
+                renderPasswordImput(),
+                renderLoginbutton(context),
+                renderCreateAccountLink(),
+                renderDivisor(),
+                renderGmailButton(),
+            ]),
+          ),
+        );
+        return scaffold;
   }
 }

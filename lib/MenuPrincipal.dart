@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:demoflutter/ventas.dart';
+import 'package:demoflutter/Tarifas.dart';
 
 void main(){
   runApp(MaterialApp(
@@ -52,7 +54,9 @@ class _MenuPrincipal extends State<MenuPrincipal> {
                 height: 150,
                 width: 300,
                 child: RaisedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>Ventas()));
+                  },
                   child: Text('Ventas'),
                 ),
               ),
@@ -62,8 +66,10 @@ class _MenuPrincipal extends State<MenuPrincipal> {
                 height: 150,
                 width: 300,
                 child: RaisedButton(
-                  onPressed: (){},
-                  child: Text('Factura'),
+                  onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>Tarifas()));
+                  },
+                  child: Text('Tarifas'),
                 ),
               )
             ],
